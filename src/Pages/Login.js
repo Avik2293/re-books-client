@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import { Link } from 'react-daisyui';
 import toast from 'react-hot-toast';
+import Spinner from '../Components/Spinner';
 
 
 const Login = () => {
@@ -83,7 +84,7 @@ const Login = () => {
         <div className='flex justify-center m-2'>
             {
                 loading ?
-                    <div className="radial-progress bg-white" style={{ "--value": 70 }}>70%</div>
+                    <Spinner></Spinner>
                     :
                     <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
                         <h1 className="text-2xl font-bold text-center">Login</h1>

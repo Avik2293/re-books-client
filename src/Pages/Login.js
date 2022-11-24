@@ -75,6 +75,39 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 setUser(user);
+
+                fetch(`http://localhost:5000/users/?email=${user?.email}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data === false) {
+                            const newUser = {
+                                userName: user.displayName,
+                                userEmail: user.email,
+                                userImgUrl: user.photoURL,
+                                role: "Buyer",
+                            };
+                            fetch('http://localhost:5000/users', {
+                                method: 'POST',
+                                headers: {
+                                    'content-type': 'application/json',
+                                },
+                                body: JSON.stringify(newUser)
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data)
+                                    if (data.acknowledged) {
+                                        toast.success('You are added as buyer');
+                                    }
+                                })
+                                .catch(er => console.error(er));
+                        }
+                        else{
+                            toast.success(`Welcome Again...${user?.displayName}`);
+                        }
+                    })
+
                 navigate(from, { replace: true });
             })
             .catch(error => console.error(error))

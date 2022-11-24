@@ -1,10 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../Components/Dashboard";
 import ErrorPage from "../Components/ErrorPage";
+import MyOrders from "../Components/MyOrders";
+import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const routes = createBrowserRouter([
@@ -54,5 +58,15 @@ export const routes = createBrowserRouter([
 //             //     loader: ({params}) => fetch(`https://electro-man-server.vercel.app/course/${params.id}`)
 //             // }
         ]
+    },
+    {
+       path: '/dashboard',
+       element:  <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+       children: [
+        {
+            path: '/dashboard',
+            element: <MyOrders></MyOrders>
+        }
+       ]
     }
 ]);

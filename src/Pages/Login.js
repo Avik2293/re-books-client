@@ -1,8 +1,8 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
-// import { Link } from 'react-daisyui';
+import { Link } from 'react-daisyui';
 import toast from 'react-hot-toast';
 
 

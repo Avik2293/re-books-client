@@ -15,19 +15,14 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-//                 loader: () => fetch('https://electrical-solution-server.vercel.app'),
+                loader: () => fetch('http://localhost:5000/'),
                 element: <Home></Home>
             },
-//             {
-//                 path: '/services',
-//                 loader: () => fetch('https://electrical-solution-server.vercel.app/services'),
-//                 element: <Services></Services>
-//             },
-//             {
-//                 path: '/service/:id',
-//                 element: <ServiceDetails></ServiceDetails>,
-//                 loader: ({ params }) => fetch(`https://electrical-solution-server.vercel.app/service/${params.id}`)
-//             },
+            {
+                path: '/catagory/:id',
+                element: <></>,
+                loader: ({ params }) => fetch(`http://localhost:5000/catagory/${params.id}`)
+            },
 //             {
 //                 path: '/myreviews',
 //                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>

@@ -55,7 +55,7 @@ const Register = () => {
                 <form onSubmit={handleSubmit} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
                         <label htmlFor="email" className="block text-gray-400">Full Name</label>
-                        <input type="text" name="name" id="name" placeholder="Type Your  Full Name" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
+                        <input type="text" name="name" id="name" placeholder="Type Your Full Name" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="email" className="block text-gray-400"> Photo URL</label>

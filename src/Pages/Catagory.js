@@ -7,24 +7,30 @@ import { AuthContext } from '../Context/AuthProvider';
 
 const Catagory = () => {
     const { loading, setLoading } = useContext(AuthContext);
+    
+    setLoading(true);
 
     const books = useLoaderData();
 
     if(books.length > 0) {
-        setLoading(true)
+        setLoading(false)
     }
+
+    console.log(books);
 
     return (
         <div>
            {
             loading ?
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 m-2">
+            <Spinner></Spinner>
+            :
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 m-3">
              {
                  books.map(book => <BookCard book={book} key={book._id}></BookCard>)
              }
             </div>
-            :
-            <Spinner></Spinner> 
+            
+             
            }
         </div>
     );

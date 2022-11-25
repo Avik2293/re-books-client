@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import Dashboard from "../Components/Dashboard";
 import ErrorPage from "../Components/ErrorPage";
 import MyOrders from "../Components/MyOrders";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog";
+import Catagory from "../Pages/Catagory";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
@@ -24,7 +24,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/catagory/:id',
-                element: <></>,
+                element: <Catagory></Catagory>,
                 loader: ({ params }) => fetch(`http://localhost:5000/catagory/${params.id}`)
             },
 //             {

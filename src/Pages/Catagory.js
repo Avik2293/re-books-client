@@ -1,12 +1,15 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import BookCard from '../Components/BookCard';
+import BookModal from '../Components/BookModal';
 import Spinner from '../Components/Spinner';
 import { AuthContext } from '../Context/AuthProvider';
 
 const Catagory = () => {
     const { loading, setLoading } = useContext(AuthContext);
+
+    const [booking, setBooking] = useState({});
     
     setLoading(true);
 
@@ -16,7 +19,7 @@ const Catagory = () => {
         setLoading(false)
     }
 
-    console.log(books);
+    // console.log(books);
 
     return (
         <div>
@@ -26,12 +29,11 @@ const Catagory = () => {
             :
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 m-3">
              {
-                 books.map(book => <BookCard book={book} key={book._id}></BookCard>)
+                 books.map(book => <BookCard book={book} key={book._id} setBooking={setBooking}></BookCard>)
              }
             </div>
-            
-             
            }
+           <BookModal booking={booking}></BookModal>
         </div>
     );
 };

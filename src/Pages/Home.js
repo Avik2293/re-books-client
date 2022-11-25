@@ -4,7 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 const Home = () => {
 
     const catagories = useLoaderData();
-    console.log(catagories);
+    // console.log(catagories);
 
     const banner = 'https://img.freepik.com/premium-photo/open-book-with-glasses-wooden-table-against-background-set-books-vintage-toning-web-banner-literature-learning-concept_101969-2143.jpg?w=2000';
 

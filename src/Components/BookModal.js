@@ -15,7 +15,7 @@ const BookModal = ({ booking }) => {
         const meetingLocation = form.meetingLocation.value;
 
         const bookingInfo = {
-            bookingPhone, meetingLocation, 
+            bookingPhone, meetingLocation,
             selectedBookName: bookName,
             selectedBookPrice: resalePrice,
             selectedBookImgUrl: img_url,
@@ -24,10 +24,24 @@ const BookModal = ({ booking }) => {
             bookingEmail: user.email,
             sellerName, sellerEmail,
         };
-
         console.log(bookingInfo);
 
-        toast.success("Booking Successfully.");
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(bookingInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    toast.success("Booking Successfully.");
+                }
+            })
+            .catch(er => console.error(er));
+
     };
 
     return (

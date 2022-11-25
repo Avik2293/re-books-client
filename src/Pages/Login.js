@@ -36,6 +36,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success(`Welcome Again...${user?.displayName}`);
                 form.reset();
                 setError('');
                 navigate(from, { replace: true });

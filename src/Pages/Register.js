@@ -37,6 +37,7 @@ const Register = () => {
                                 userName: name,
                                 userEmail: email,
                                 userImgUrl: photoURL,
+                                verified: false,
                                 role
                             };
                             fetch('http://localhost:5000/users', {
@@ -52,6 +53,7 @@ const Register = () => {
                                     if (data.acknowledged) {
                                         toast.success(`You are added as ${role}`);
                                     }
+                                    window.location.reload();
                                 })
                                 .catch(er => console.error(er));
                         }

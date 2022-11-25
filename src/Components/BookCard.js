@@ -38,7 +38,8 @@ const BookCard = ({ book, setBooking }) => {
                             <div className="badge badge-outline badge-primary">Original Price: ${originalPrice}</div>
                             <div className="badge badge-outline badge-primary">Resale Price: ${resalePrice}</div>
                         </div>
-                        <label htmlFor="book-modal" className="btn btn-outline btn-primary w-28 grid place-self-center" onClick={() => setBooking(book)}>Book Now</label>
+                        <label htmlFor="book-modal" className="btn btn-outline btn-primary w-28 grid place-self-center" 
+                        onClick={() => setBooking(book)}>Book Now</label>
                     </div>
                 </div>
             }

@@ -11,7 +11,7 @@ const useSeller = email => {
                 .then(data => {
                     console.log(data);
                     // setIsAdmin(data.isAdmin);
-                    if(data.role === "Admin"){
+                    if(data.role === "Seller"){
                         setIsSeller(true);
                     }
                     // setIsAdminLoading(false);

@@ -49,9 +49,22 @@ const DashboardLayout = () => {
                     <ul className="menu p-4 w-80 text-base-content font-bold bg-gray-300">
                         <li><Link to='/dashboard'>My Orders</Link></li>
                         <li><Link to='/dashboard/mywishlist'>My Wishlist</Link></li>
-                        <li><Link to='/dashboard/addproduct'>Add A Product</Link></li>
-                        <li><Link to='/dashboard/myproducts'>My Products</Link></li>
-                        <li><Link to='/dashboard/mybuyers'>My Buyers</Link></li>
+                        
+                         if(!isAdmin && !isSeller){
+                            <div>
+                                <li><Link to='/dashboard'>My Orders</Link></li>
+                                <li><Link to='/dashboard/mywishlist'>My Wishlist</Link></li>
+                            </div>
+                        }
+                       
+                        {
+                            isSeller &&
+                            <>
+                                <li><Link to='/dashboard/addproduct'>Add A Product</Link></li>
+                                <li><Link to='/dashboard/myproducts'>My Products</Link></li>
+                                <li><Link to='/dashboard/mybuyers'>My Buyers</Link></li>
+                            </>
+                        }
                         {
                             isAdmin &&
                             <>

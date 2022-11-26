@@ -27,6 +27,7 @@ const MyOrders = () => {
                 <table className="table w-full">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Book Image</th>
                             <th>Book Name</th>
                             <th>Price</th>

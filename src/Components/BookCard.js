@@ -5,7 +5,7 @@ import { FaCheckCircle } from 'react-icons/fa';
 const BookCard = ({ book, setBooking }) => {
     const { bookName, img_url, location, originalPrice, resalePrice, sellerEmail, sellerName, sold, yearsOfUse } = book;
 
-    const [verified, setVerified] = useState();
+    const [verified, setVerified] = useState(false);
 
     // const {data: iverified = []} = useQuery({ 
     //     queryKey: ['iverified'], 

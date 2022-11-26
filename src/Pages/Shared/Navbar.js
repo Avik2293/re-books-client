@@ -36,11 +36,11 @@ const Navbar = () => {
                             <li><Link to='/blog'>Blog</Link></li>
                         </ul>
                     </div>
-                    <Link className="btn btn-ghost normal-case text-xl" to={'/'}><img className='h-5' src={logoNew} alt="" /> Re-Books</Link>
+                    <Link className="btn btn-ghost normal-case text-xl font-extrabold" to={'/'}><img className='h-5' src={logoNew} alt="" /> Re-Books</Link>
                 </div>
                 <div className="navbar-end">
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal p-0">
+                        <ul className="menu menu-horizontal p-0 font-bold">
                             {
                                 user?.uid &&
                                 <>

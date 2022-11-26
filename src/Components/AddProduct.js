@@ -97,18 +97,6 @@ const AddProduct = () => {
                     {/* <div className="form-control w-full">
                         <span className="label-text">Your Name</span>
                         <input type="text" className="input input-bordered w-full" {...register("sellerName")} defaultValue={user.displayName} readOnly />
-                    </div>
-                    <div className="form-control w-full">
-                        <span className="label-text">Your Email</span>
-                        <input type="text" className="input input-bordered w-full" {...register("sellerEmail")} defaultValue={user.email} readOnly />
-                    </div>
-                    <div className="form-control w-full">
-                        <span className="label-text">Your Account Verification Status</span>
-                        <input type="text" className="input input-bordered w-full" {...register("verified")} defaultValue='false' readOnly />
-                    </div>
-                    <div className="form-control w-full">
-                        <span className="label-text">This book Sold Status</span>
-                        <input type="text" className="input input-bordered w-full" {...register("sold")} defaultValue='false' readOnly />
                     </div> */}
                 </div>
                 {/* <p>{data}</p> */}

@@ -3,7 +3,7 @@ import { FaCheckCircle } from 'react-icons/fa';
 // import { useQuery } from '@tanstack/react-query';
 
 const BookCard = ({ book, setBooking }) => {
-    const { bookName, img_url, location, originalPrice, resalePrice, sellerEmail, sellerName, sold, yearsOfUse } = book;
+    const { bookName, img_url, location, originalPrice, resalePrice, sellerEmail, sellerName, sold, yearsOfUse, postTime } = book;
 
     const [verified, setVerified] = useState(false);
 
@@ -35,15 +35,16 @@ const BookCard = ({ book, setBooking }) => {
                             {bookName}
                         </h2>
                         <h2 className="card-title">
-                            Seller: {sellerName}
+                            <span className='font-bold'>Seller:</span>
+                             {sellerName}
                             {
                                 verified && <FaCheckCircle className="text-blue-600"></FaCheckCircle>
                             }
                         </h2>
-                        <div className='flex'>
-                            <p>Location: {location}</p>
-                            <p>Used Time: {yearsOfUse} Years</p>
-                            <p>Posted On: { }</p>
+                        <div className='flex lg:block'>
+                            <p className='border border-dashed border-stone-500 rounded-lg mr-1'><span className='font-bold'>Location:</span> {location}</p>
+                            <p className='border border-dashed border-stone-500 rounded-lg mr-1 mt-1'><span className='font-bold'>Used Time:</span> {yearsOfUse} Years</p>
+                            <p className='border border-dashed border-stone-500 rounded-lg mt-1'><span className='font-bold'>Posted On:</span> {postTime}</p>
                         </div>
                         <div className="card-actions justify-end">
                             <div className="badge badge-outline badge-primary">Original Price: ${originalPrice}</div>

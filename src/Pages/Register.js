@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Spinner from '../Components/Spinner';
 import { AuthContext } from '../Context/AuthProvider';
 import toast from 'react-hot-toast';
@@ -10,6 +10,8 @@ const Register = () => {
     const [error, setError] = useState('');
 
     const { createUser, updateUserProfile, loading, setLoading } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -65,6 +67,8 @@ const Register = () => {
                 setError('');
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
+                
+                navigate('/');
             })
             .catch(e => {
                 setLoading(false);
@@ -79,7 +83,9 @@ const Register = () => {
             photoURL: photoURL
         }
         updateUserProfile(profile)
-            .then(() => { })
+            .then(() => { 
+                
+            })
             .catch(error => console.error(error));
     };
 

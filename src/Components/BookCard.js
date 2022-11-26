@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
+// import { useQuery } from '@tanstack/react-query';
 
 const BookCard = ({ book, setBooking }) => {
-    const { bookName, catagoryId, catagoryName, img_url, location, originalPrice, resalePrice, sellerEmail, sellerName, sold, yearsOfUse, _id } = book;
+    const { bookName, img_url, location, originalPrice, resalePrice, sellerEmail, sellerName, sold, yearsOfUse } = book;
 
     const [verified, setVerified] = useState();
+
+    // const {data: iverified = []} = useQuery({ 
+    //     queryKey: ['iverified'], 
+    //     queryFn: async () => {
+    //         const res = await fetch(`http://localhost:5000/users/?email=${sellerEmail}`);
+    //         const data = await res.json();
+    //         return data;
+    //     }
+    // });
+
 
     fetch(`http://localhost:5000/users/?email=${sellerEmail}`)
         .then(res => res.json())

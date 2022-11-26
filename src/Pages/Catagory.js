@@ -5,6 +5,7 @@ import BookCard from '../Components/BookCard';
 import BookModal from '../Components/BookModal';
 import Spinner from '../Components/Spinner';
 import { AuthContext } from '../Context/AuthProvider';
+// import { useQuery } from '@tanstack/react-query';
 
 const Catagory = () => {
     const { loading, setLoading } = useContext(AuthContext);
@@ -12,6 +13,8 @@ const Catagory = () => {
     const [booking, setBooking] = useState({});
     
     setLoading(true);
+
+    // const {} = useQuery({ queryKey: ['todos'], queryFn: getTodos });
 
     const books = useLoaderData();
 

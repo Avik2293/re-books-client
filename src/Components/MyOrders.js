@@ -1,49 +1,62 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../Context/AuthProvider';
+import { useQuery } from '@tanstack/react-query';
 
 const MyOrders = () => {
-    return (
-        <div className="overflow-x-auto w-full">
-            <table className="table w-full">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Job</th>
-                        <th>Favorite Color</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div className="flex items-center space-x-3">
-                                <div className="avatar">
-                                    <div className="mask mask-squircle w-12 h-12">
-                                        <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="font-bold">Hart Hagerty</div>
-                                    <div className="text-sm opacity-50">United States</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            Zemlak, Daniel and Leannon
-                            <br />
-                            <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                        </td>
-                        <td>Purple</td>
-                        <th>
-                            <button className="btn btn-ghost btn-xs">Delete</button>
-                        </th>
-                        <th>
-                            <button className="btn btn-ghost btn-xs">Pay</button>
-                        </th>
-                    </tr>
-                </tbody>
+    const { user } = useContext(AuthContext);
 
-            </table>
+    const { data: bookings = [] } = useQuery({
+        queryKey: ['bookings', user?.email],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/bookings?email=${user?.email}`);
+            const data = await res.json();
+            return data;
+        }
+    });
+
+    // fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data);
+    //     })
+
+    return (
+        <div>
+            <h2 className='font-bold text-3xl m-3'>My Orders</h2>
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
+                    <thead>
+                        <tr>
+                            <th>Book Image</th>
+                            <th>Book Name</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            bookings.map((booking, i) =>
+                                <tr key={i}>
+                                    <th>{i+1}</th>
+                                    <td>
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={booking.selectedBookImgUrl} alt="Avatar Tailwind CSS Component" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className=" font-bold">{booking.selectedBookName}</div>
+                                    </td>
+                                    <td>{booking.selectedBookPrice} $</td>
+                                    <th>
+                                        <button className="btn btn-ghost btn-xs">Pay</button>
+                                    </th>
+                                </tr>)
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

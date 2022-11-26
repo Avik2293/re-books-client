@@ -47,16 +47,13 @@ const DashboardLayout = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 text-base-content font-bold bg-gray-300">
-                        <li><Link to='/dashboard'>My Orders</Link></li>
-                        <li><Link to='/dashboard/mywishlist'>My Wishlist</Link></li>
-                        
-                         if(!isAdmin && !isSeller){
-                            <div>
+                        {
+                            !isAdmin && !isSeller &&
+                            <>
                                 <li><Link to='/dashboard'>My Orders</Link></li>
                                 <li><Link to='/dashboard/mywishlist'>My Wishlist</Link></li>
-                            </div>
+                            </>
                         }
-                       
                         {
                             isSeller &&
                             <>

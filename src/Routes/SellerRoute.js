@@ -8,11 +8,11 @@ import useSeller from '../Hooks/useSeller';
 const SellerRoute = ({children}) => {
     const {user, loading} = useContext(AuthContext);
 
-    const [isSeller] = useSeller(user?.email);
+    const [isSeller, isSellerLoading] = useSeller(user?.email);
 
     const location = useLocation();
 
-    if(loading){
+    if(loading || isSellerLoading){
         return <Spinner></Spinner>;
     }
 

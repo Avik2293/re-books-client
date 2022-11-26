@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 const useSeller = email => {
     const [isSeller, setIsSeller] = useState(false);
-    // const [isAdminLoading, setIsAdminLoading] = useState(true);
+    const [isSellerLoading, setIsSellerLoading] = useState(true);
     useEffect(() => {
         if (email) {
             // fetch(`http://localhost:5000/users/${email}`)
@@ -14,12 +14,12 @@ const useSeller = email => {
                     if(data.role === "Seller"){
                         setIsSeller(true);
                     }
-                    // setIsAdminLoading(false);
+                    setIsSellerLoading(false);
                 })
         }
     }, [email])
-    // return [isAdmin, isAdminLoading]
-    return [isSeller]
+    return [isSeller, isSellerLoading]
+    // return [isSeller]
 }
 
 export default useSeller;

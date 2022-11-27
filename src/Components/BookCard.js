@@ -28,7 +28,7 @@ const BookCard = ({ book, setBooking }) => {
         <>
             {
                 !sold &&
-                <div className="card lg:card-side w-11/12 lg:w-96 bg-base-100 shadow-xl">
+                <div className="card lg:card-side w-11/12 lg:w-96 bg-gray-400 shadow-xl">
                     <figure><img className='h-52 lg:h-64 lg:w-80' src={img_url} alt="" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">

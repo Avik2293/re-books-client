@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 
 const MyProducts = () => {
     const { user } = useContext(AuthContext);
@@ -20,6 +21,46 @@ const MyProducts = () => {
     //         console.log(data);
     //     })
 
+    const handleDelete = id => {
+        const proceed = window.confirm('Want to delete this books ?');
+        if (proceed) {
+            fetch(`http://localhost:5000/book/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        toast.success('deleted successfully');
+                        // const remaining = myReviews.filter(r => r._id !== id);
+                        // setMyReviews(remaining);
+                        window.location.reload();
+                    }
+                })
+        }
+    };
+
+    const handleAdvertised = id => {
+        // event.preventDefault();
+        // const reviewText = event.target.reviewText.value;
+
+        fetch(`http://localhost:5000/book/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ advertised: true })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    toast.success('Now you can see this book on Advertise section.');
+                    window.location.reload();
+                }
+            })
+    };
+
     return (
         <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
             <h2 className="mb-4 text-2xl font-semibold leading-tight">My Products</h2>
@@ -31,11 +72,11 @@ const MyProducts = () => {
                     </colgroup>
                     <thead className="dark:bg-gray-700">
                         <tr>
-                            <th className="p-1">#</th>
+                            <th className="">#</th>
                             <th className="p-3">Book Image</th>
                             <th className="p-3">Book Name</th>
                             <th className="p-3">Price</th>
-                            <th className="p-3 text-right">Status</th>
+                            <th className="p-3">Status</th>
                             <th className="p-3">Action</th>
                         </tr>
                     </thead>
@@ -43,7 +84,7 @@ const MyProducts = () => {
                         {
                             products.map((product, i) =>
                                 <tr key={i} className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
-                                    <td className="p-1">
+                                    <td className="">
                                         <p>{i + 1}</p>
                                     </td>
                                     <td className="p-3">
@@ -59,7 +100,7 @@ const MyProducts = () => {
                                     <td className="p-3">
                                         <div className="">{product.resalePrice} $</div>
                                     </td>
-                                    <td className="p-3 text-right">
+                                    <td className="p-3">
                                         {
                                             product?.sold ?
                                                 <div className="badge badge-primary badge-outline">Sold</div>
@@ -67,8 +108,11 @@ const MyProducts = () => {
                                         }
                                     </td>
                                     <td className="p-3 text-right grid grid-cols-1">
-                                        <button className="btn btn-ghost btn-xs">Advertise</button>
-                                        <button className="btn btn-ghost btn-xs">Delete</button>
+                                        {
+                                            !product?.sold && !product?.advertised &&
+                                            <button onClick={() => handleAdvertised(product?._id)} className="btn btn-ghost btn-xs">Advertise</button>
+                                        }
+                                        <button onClick={() => handleDelete(product?._id)} className="btn btn-ghost btn-xs">Delete</button>
                                     </td>
                                 </tr>
                             )

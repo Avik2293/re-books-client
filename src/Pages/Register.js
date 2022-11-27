@@ -40,6 +40,7 @@ const Register = () => {
                                 userEmail: email,
                                 userImgUrl: photoURL,
                                 verified: false,
+                                userUID: user.uid,
                                 role
                             };
                             fetch('http://localhost:5000/users', {

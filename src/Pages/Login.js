@@ -88,6 +88,7 @@ const Login = () => {
                                 userImgUrl: user.photoURL,
                                 role: "Buyer",
                                 verified: false,
+                                userUID: user.uid
                             };
                             fetch('http://localhost:5000/users', {
                                 method: 'POST',

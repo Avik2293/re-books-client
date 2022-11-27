@@ -14,23 +14,22 @@ const AllSellers = () => {
         }
     });
 
-    const handleDelete = id => {
-        // const proceed = window.confirm('Want to delete this books ?');
-        // if (proceed) {
-        //     fetch(`http://localhost:5000/book/${id}`, {
-        //         method: 'DELETE'
-        //     })
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             console.log(data);
-        //             if (data.deletedCount > 0) {
-        //                 toast.success('deleted successfully');
-        //                 // const remaining = myReviews.filter(r => r._id !== id);
-        //                 // setMyReviews(remaining);
-        //                 window.location.reload();
-        //             }
-        //         })
-        // }
+    const handleDelete = (id, uid) => {
+        const proceed = window.confirm('Want to delete this user ?');
+        if (proceed) {
+            // console.log(id, uid);
+            fetch(`http://localhost:5000/user/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        toast.success('User deleted successfully');
+                        window.location.reload();
+                    }
+                })
+        }
     };
 
     const handleVerify = id => {
@@ -102,7 +101,7 @@ const AllSellers = () => {
                                         }
                                     </td>
                                     <td className="p-3 text-right grid grid-cols-1">
-                                        <button onClick={() => handleDelete(seller?._id)} className="btn btn-ghost btn-xs">Delete</button>
+                                        <button onClick={() => handleDelete(seller?._id, seller?.userUID)} className="btn btn-ghost btn-xs">Delete</button>
                                     </td>
                                 </tr>
                             )

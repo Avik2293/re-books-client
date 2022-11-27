@@ -10,7 +10,7 @@ import { AuthContext } from '../Context/AuthProvider';
 const Catagory = () => {
     const { loading, setLoading } = useContext(AuthContext);
 
-    const [booking, setBooking] = useState({});
+    const [booking, setBooking] = useState(null);
     
     setLoading(true);
 
@@ -36,7 +36,9 @@ const Catagory = () => {
              }
             </div>
            }
-           <BookModal booking={booking}></BookModal>
+           {
+            booking && <BookModal booking={booking} setBooking={setBooking}></BookModal>
+           }
         </div>
     );
 };

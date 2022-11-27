@@ -7,7 +7,6 @@ import { AuthContext } from '../../Context/AuthProvider';
 const Navbar = () => {
     const menuItems = <React.Fragment>
         <li><Link to='/dashboard'>Dashboard</Link></li>
-        <li><Link to='/'></Link></li>
     </React.Fragment>
 
     const { user, logOut } = useContext(AuthContext);

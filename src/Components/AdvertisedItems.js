@@ -22,7 +22,7 @@ const AdvertisedItems = () => {
         <div>
             {
                 advertisedItems.length > 0 &&
-                <div className='p-2 border rounded-xl m-1'>
+                <div className='m-1'>
                     <p className='text-white font-extrabold text-2xl p-1 bg-sky-600 border rounded-xl'>Advertised Items</p>
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 m-2">
                         {

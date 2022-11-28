@@ -1,21 +1,11 @@
 import React, { useState } from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
-// import { useQuery } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 
-const BookCard = ({ book, setBooking }) => {
-    const { bookName, img_url, location, originalPrice, resalePrice, sellerEmail, sellerName, sold, yearsOfUse, postTime } = book;
+const BookCard = ({ book, setBooking, isBuyer }) => {
+    const { bookName, img_url, location, originalPrice, resalePrice, sellerEmail, sellerName, sold, yearsOfUse, postTime, _id } = book;
 
     const [verified, setVerified] = useState(false);
-
-    // const {data: iverified = []} = useQuery({ 
-    //     queryKey: ['iverified'], 
-    //     queryFn: async () => {
-    //         const res = await fetch(`http://localhost:5000/users/?email=${sellerEmail}`);
-    //         const data = await res.json();
-    //         return data;
-    //     }
-    // });
-
 
     fetch(`http://localhost:5000/users/?email=${sellerEmail}`)
         .then(res => res.json())
@@ -23,6 +13,30 @@ const BookCard = ({ book, setBooking }) => {
             // console.log(data);
             data?.verified && setVerified(true);
         })
+
+
+    const handleReportToAdmin = (id) => {
+        const proceed = window.confirm('Want to report this book ?');
+        if (proceed) {
+            // console.log(id, uid);
+            fetch(`http://localhost:5000/book/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ reported: true })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.acknowledged) {
+                        toast.success('Book reported successfully');
+                        window.location.reload();
+                    }
+                })
+        }
+
+    };
 
     return (
         <>
@@ -36,7 +50,7 @@ const BookCard = ({ book, setBooking }) => {
                         </h2>
                         <h2 className="card-title">
                             <span className='font-bold'>Seller:</span>
-                             {sellerName}
+                            {sellerName}
                             {
                                 verified && <FaCheckCircle className="text-blue-600"></FaCheckCircle>
                             }
@@ -50,8 +64,22 @@ const BookCard = ({ book, setBooking }) => {
                             <div className="badge badge-outline badge-primary">Original Price: ${originalPrice}</div>
                             <div className="badge badge-outline badge-primary">Resale Price: ${resalePrice}</div>
                         </div>
-                        <label htmlFor="book-modal" className="btn btn-outline btn-primary w-28 grid place-self-center" 
-                        onClick={() => setBooking(book)}>Book Now</label>
+                        {
+                            isBuyer ?
+                                <div className='flex lg:block'>
+                                    <label htmlFor="book-modal" className="btn btn-outline btn-primary grid place-self-center"
+                                        onClick={() => setBooking(book)}>Book Now</label>
+                                    <label className="btn btn-outline btn-primary grid place-self-center m-1">Add to WishList</label>
+                                    {
+                                        book?.reported ? 
+                                        <label className="btn btn-outline btn-primary grid place-self-center">Reported</label>
+                                        :
+                                            <label onClick={() => handleReportToAdmin(_id)} className="btn btn-outline btn-primary grid place-self-center">Report</label>
+                                    }
+                                </div> :
+                                <label className="btn btn-outline btn-primary grid place-self-center">You are not Buyer</label>
+
+                        }
                     </div>
                 </div>
             }

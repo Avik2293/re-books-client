@@ -5,16 +5,17 @@ import BookCard from '../Components/BookCard';
 import BookModal from '../Components/BookModal';
 import Spinner from '../Components/Spinner';
 import { AuthContext } from '../Context/AuthProvider';
+import useBuyer from '../Hooks/useBuyer';
 // import { useQuery } from '@tanstack/react-query';
 
 const Catagory = () => {
-    const { loading, setLoading } = useContext(AuthContext);
+    const { loading, setLoading, user } = useContext(AuthContext);
+
+    const [isBuyer] = useBuyer(user?.email);
 
     const [booking, setBooking] = useState(null);
     
     setLoading(true);
-
-    // const {} = useQuery({ queryKey: ['todos'], queryFn: getTodos });
 
     const books = useLoaderData();
 
@@ -32,7 +33,7 @@ const Catagory = () => {
             :
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 m-3">
              {
-                 books.map(book => <BookCard book={book} key={book._id} setBooking={setBooking}></BookCard>)
+                 books.map(book => <BookCard book={book} key={book._id} isBuyer={isBuyer} setBooking={setBooking}></BookCard>)
              }
             </div>
            }

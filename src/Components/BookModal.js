@@ -84,9 +84,6 @@ const BookModal = ({ booking, setBooking }) => {
                         <input className='w-full btn' type="submit" value="Submit"></input>
                         <label htmlFor="book-modal" className="btn">Close</label>
                     </form>
-                    {/* <div className="modal-action">
-                            <label htmlFor="book-modal" className="btn">Close</label>
-                        </div> */}
                 </div>
             </div>
         </>

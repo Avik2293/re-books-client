@@ -41,8 +41,6 @@ const MyProducts = () => {
     };
 
     const handleAdvertised = id => {
-        // event.preventDefault();
-        // const reviewText = event.target.reviewText.value;
 
         fetch(`http://localhost:5000/book/${id}`, {
             method: 'PATCH',

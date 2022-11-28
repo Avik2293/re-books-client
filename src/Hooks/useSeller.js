@@ -10,7 +10,6 @@ const useSeller = email => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    // setIsAdmin(data.isAdmin);
                     if(data.role === "Seller"){
                         setIsSeller(true);
                     }
@@ -19,7 +18,7 @@ const useSeller = email => {
         }
     }, [email])
     return [isSeller, isSellerLoading]
-    // return [isSeller]
+    
 }
 
 export default useSeller;

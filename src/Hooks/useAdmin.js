@@ -10,7 +10,6 @@ const useAdmin = email => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data.role);
-                    // setIsAdmin(data.isAdmin);
                     if(data.role === "Admin"){
                         setIsAdmin(true);
                     }
@@ -19,7 +18,7 @@ const useAdmin = email => {
         }
     }, [email])
     return [isAdmin, isAdminLoading]
-    // return [isAdmin]
+    
 }
 
 export default useAdmin;

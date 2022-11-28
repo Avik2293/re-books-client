@@ -6,7 +6,6 @@ import BookModal from '../Components/BookModal';
 import Spinner from '../Components/Spinner';
 import { AuthContext } from '../Context/AuthProvider';
 import useBuyer from '../Hooks/useBuyer';
-// import { useQuery } from '@tanstack/react-query';
 
 const Catagory = () => {
     const { loading, setLoading, user } = useContext(AuthContext);

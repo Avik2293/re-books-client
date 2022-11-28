@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
@@ -13,6 +14,7 @@ const MyOrders = () => {
             return data;
         }
     });
+    console.log(bookings);
 
     // fetch(`http://localhost:5000/bookings?email=${user?.email}`)
     //     .then(res => res.json())
@@ -38,7 +40,7 @@ const MyOrders = () => {
                         {
                             bookings.map((booking, i) =>
                                 <tr key={i}>
-                                    <th>{i+1}</th>
+                                    <th>{i + 1}</th>
                                     <td>
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
@@ -51,7 +53,12 @@ const MyOrders = () => {
                                     </td>
                                     <td>{booking.selectedBookPrice} $</td>
                                     <th>
-                                        <button className="btn btn-ghost btn-xs">Pay</button>
+                                        {
+                                            booking?.sold ?
+                                                <div className="badge badge-primary badge-outline">Paid</div>
+                                                :
+                                                <Link to={`/dashboard/payment/${booking._id}`}><button className="btn btn-ghost btn-xs">Pay</button></Link>
+                                        }
                                     </th>
                                 </tr>)
                         }

@@ -1,15 +1,19 @@
 # Project Name: Re-Books
 
-# Live Site Link: []().
+# Live Site Link: [https://re-books-8d66d.web.app/](https://re-books-8d66d.web.app/).
 
 # Project Github Link: [https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-Avik2293](https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-Avik2293).
 
 # Server Github Link: [https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-Avik2293](https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-Avik2293).
 
+
+# For Check......
 # Admin Email: ajaira@nam.com
 # Admin Password: 123456
 
+
 ## This Project has been Created for Programming Hero Web Development Course, Assignment No. 12.
+
 
 ## Some details about The Project:
 

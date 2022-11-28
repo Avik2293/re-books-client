@@ -27,7 +27,7 @@ const BookModal = ({ booking, setBooking }) => {
         // };
         // console.log(bookingInfo);
 
-        // fetch('http://localhost:5000/bookings', {
+        // fetch('https://re-books-server.vercel.app/bookings', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json',
@@ -43,7 +43,7 @@ const BookModal = ({ booking, setBooking }) => {
         //     })
         //     .catch(er => console.error(er));
 
-        axios.post('http://localhost:5000/bookings', {
+        axios.post('https://re-books-server.vercel.app/bookings', {
             bookingPhone, meetingLocation,
             selectedBookName: bookName,
             selectedBookPrice: resalePrice,

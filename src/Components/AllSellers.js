@@ -8,7 +8,7 @@ const AllSellers = () => {
     const { data: sellers = [] } = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users/sellers');
+            const res = await fetch('https://re-books-server.vercel.app/users/sellers');
             const data = await res.json();
             return data;
         }
@@ -18,7 +18,7 @@ const AllSellers = () => {
         const proceed = window.confirm('Want to delete this user ?');
         if (proceed) {
             // console.log(id, uid);
-            fetch(`http://localhost:5000/user/${id}`, {
+            fetch(`https://re-books-server.vercel.app/user/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -33,7 +33,7 @@ const AllSellers = () => {
     };
 
     const handleVerify = id => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://re-books-server.vercel.app/users/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

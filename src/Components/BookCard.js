@@ -7,7 +7,7 @@ const BookCard = ({ book, setBooking, isBuyer }) => {
 
     const [verified, setVerified] = useState(false);
 
-    fetch(`http://localhost:5000/users/?email=${sellerEmail}`)
+    fetch(`https://re-books-server.vercel.app/users/?email=${sellerEmail}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data);
@@ -19,7 +19,7 @@ const BookCard = ({ book, setBooking, isBuyer }) => {
         const proceed = window.confirm('Want to report this book ?');
         if (proceed) {
             // console.log(id, uid);
-            fetch(`http://localhost:5000/book/${id}`, {
+            fetch(`https://re-books-server.vercel.app/book/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -71,9 +71,9 @@ const BookCard = ({ book, setBooking, isBuyer }) => {
                                         onClick={() => setBooking(book)}>Book Now</label>
                                     <label className="btn btn-outline btn-primary grid place-self-center m-1">Add to WishList</label>
                                     {
-                                        book?.reported ? 
-                                        <label className="btn btn-outline btn-primary grid place-self-center">Reported</label>
-                                        :
+                                        book?.reported ?
+                                            <label className="btn btn-outline btn-primary grid place-self-center">Reported</label>
+                                            :
                                             <label onClick={() => handleReportToAdmin(_id)} className="btn btn-outline btn-primary grid place-self-center">Report</label>
                                     }
                                 </div> :

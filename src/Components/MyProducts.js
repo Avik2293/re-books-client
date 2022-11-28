@@ -9,13 +9,13 @@ const MyProducts = () => {
     const { data: products = [] } = useQuery({
         queryKey: ['products', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/books?email=${user?.email}`);
+            const res = await fetch(`https://re-books-server.vercel.app/books?email=${user?.email}`);
             const data = await res.json();
             return data;
         }
     });
 
-    // fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+    // fetch(`https://re-books-server.vercel.app/bookings?email=${user?.email}`)
     //     .then(res => res.json())
     //     .then(data => {
     //         console.log(data);
@@ -24,7 +24,7 @@ const MyProducts = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Want to delete this books ?');
         if (proceed) {
-            fetch(`http://localhost:5000/book/${id}`, {
+            fetch(`https://re-books-server.vercel.app/book/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -42,7 +42,7 @@ const MyProducts = () => {
 
     const handleAdvertised = id => {
 
-        fetch(`http://localhost:5000/book/${id}`, {
+        fetch(`https://re-books-server.vercel.app/book/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

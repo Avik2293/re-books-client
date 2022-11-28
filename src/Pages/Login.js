@@ -77,7 +77,7 @@ const Login = () => {
                 console.log(user);
                 setUser(user);
 
-                fetch(`http://localhost:5000/users/?email=${user?.email}`)
+                fetch(`https://re-books-server.vercel.app/users/?email=${user?.email}`)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
@@ -90,7 +90,7 @@ const Login = () => {
                                 verified: false,
                                 userUID: user.uid
                             };
-                            fetch('http://localhost:5000/users', {
+                            fetch('https://re-books-server.vercel.app/users', {
                                 method: 'POST',
                                 headers: {
                                     'content-type': 'application/json',
@@ -106,7 +106,7 @@ const Login = () => {
                                 })
                                 .catch(er => console.error(er));
                         }
-                        else{
+                        else {
                             toast.success(`Welcome Again...${user?.displayName}`);
                         }
                     })

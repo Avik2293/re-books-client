@@ -30,13 +30,13 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/'),
+                loader: () => fetch('https://re-books-server.vercel.app/'),
                 element: <Home></Home>
             },
             {
                 path: '/catagory/:id',
                 element: <PrivateRoute><Catagory></Catagory></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/catagory/${params.id}`)
+                loader: ({ params }) => fetch(`https://re-books-server.vercel.app/catagory/${params.id}`)
             },
             {
                 path: '/blog',
@@ -64,7 +64,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <BuyerRoute><Payment></Payment></BuyerRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://re-books-server.vercel.app/bookings/${params.id}`)
             },
             {
                 path: '/dashboard/mywishlist',

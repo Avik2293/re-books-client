@@ -5,12 +5,12 @@ const useAdmin = email => {
     const [isAdminLoading, setIsAdminLoading] = useState(true);
     useEffect(() => {
         if (email) {
-            // fetch(`http://localhost:5000/users/${email}`)
-            fetch(`http://localhost:5000/users/?email=${email}`)
+            // fetch(`https://re-books-server.vercel.app/users/${email}`)
+            fetch(`https://re-books-server.vercel.app/users/?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data.role);
-                    if(data.role === "Admin"){
+                    if (data.role === "Admin") {
                         setIsAdmin(true);
                     }
                     setIsAdminLoading(false);
@@ -18,7 +18,7 @@ const useAdmin = email => {
         }
     }, [email])
     return [isAdmin, isAdminLoading]
-    
+
 }
 
 export default useAdmin;

@@ -5,12 +5,12 @@ const useBuyer = email => {
     const [isBuyerLoading, setIsBuyerLoading] = useState(true);
     useEffect(() => {
         if (email) {
-            // fetch(`http://localhost:5000/users/${email}`)
-            fetch(`http://localhost:5000/users/?email=${email}`)
+            // fetch(`https://re-books-server.vercel.app/users/${email}`)
+            fetch(`https://re-books-server.vercel.app/users/?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data.role);
-                    if(data.role === "Buyer"){
+                    if (data.role === "Buyer") {
                         setIsBuyer(true);
                     }
                     setIsBuyerLoading(false);
@@ -18,7 +18,7 @@ const useBuyer = email => {
         }
     }, [email])
     return [isBuyer, isBuyerLoading]
-    
+
 }
 
 export default useBuyer;

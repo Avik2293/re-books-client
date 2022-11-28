@@ -33,7 +33,7 @@ const AddProduct = () => {
         };
         console.log(newBook);
 
-        fetch('http://localhost:5000/book', {
+        fetch('https://re-books-server.vercel.app/book', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

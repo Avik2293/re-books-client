@@ -1,16 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../Context/AuthProvider';
+import useBuyer from '../Hooks/useBuyer';
 import BookCard from './BookCard';
 import BookModal from './BookModal';
 
 const AdvertisedItems = () => {
+    const { user } = useContext(AuthContext);
 
-    const [booking, setBooking] = useState({});
+    const [booking, setBooking] = useState('');
+
+    const [isBuyer] = useBuyer(user?.email);
 
     const { data: allBooks = [] } = useQuery({
         queryKey: ['allBooks'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/books');
+            const res = await fetch('https://re-books-server.vercel.app/books');
             const data = await res.json();
             return data;
         }
@@ -21,12 +26,12 @@ const AdvertisedItems = () => {
     return (
         <div>
             {
-                advertisedItems.length > 0 &&
+                advertisedItems?.length > 0 &&
                 <div className='m-1'>
                     <p className='text-white font-extrabold text-2xl p-1 bg-sky-600 border rounded-xl'>Advertised Items</p>
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 m-2">
                         {
-                            advertisedItems.map(book => <BookCard book={book} key={book._id} setBooking={setBooking}></BookCard>)
+                            advertisedItems.map(book => <BookCard book={book} key={book._id} isBuyer={isBuyer} setBooking={setBooking}></BookCard>)
                         }
                     </div>
                     <BookModal booking={booking}></BookModal>

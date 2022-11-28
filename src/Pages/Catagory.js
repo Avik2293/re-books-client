@@ -12,13 +12,13 @@ const Catagory = () => {
 
     const [isBuyer] = useBuyer(user?.email);
 
-    const [booking, setBooking] = useState(null);
+    const [booking, setBooking] = useState('');
     
     setLoading(true);
 
     const books = useLoaderData();
 
-    if(books.length > 0) {
+    if(books?.length > 0) {
         setLoading(false)
     }
 

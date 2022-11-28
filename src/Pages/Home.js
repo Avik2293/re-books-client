@@ -26,7 +26,7 @@ const Home = () => {
                 <h3 className='text-xl font-extrabold p-2'>Books Catagory</h3>
                 <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
                     {
-                        catagories.map(catagory => <Link className='btn' to={`/catagory/${catagory.id}`} key={catagory._id}><button type="submit"></button>{catagory.catagory}</Link>)
+                        catagories.map(catagory => <Link className='btn' to={`/catagory/${catagory.id}`} key={catagory?._id}><button type="submit"></button>{catagory?.catagory}</Link>)
                     }
                 </div>
             </div>

@@ -30,7 +30,7 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
 
-                fetch(`http://localhost:5000/users/?email=${email}`)
+                fetch(`https://re-books-server.vercel.app/users/?email=${email}`)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
@@ -43,7 +43,7 @@ const Register = () => {
                                 userUID: user.uid,
                                 role
                             };
-                            fetch('http://localhost:5000/users', {
+                            fetch('https://re-books-server.vercel.app/users', {
                                 method: 'POST',
                                 headers: {
                                     'content-type': 'application/json',
@@ -68,7 +68,7 @@ const Register = () => {
                 setError('');
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
-                
+
                 navigate('/');
             })
             .catch(e => {
@@ -84,8 +84,8 @@ const Register = () => {
             photoURL: photoURL
         }
         updateUserProfile(profile)
-            .then(() => { 
-                
+            .then(() => {
+
             })
             .catch(error => console.error(error));
     };

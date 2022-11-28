@@ -7,7 +7,7 @@ const ReportedItems = () => {
     const { data: reportedItems = [] } = useQuery({
         queryKey: ['reportedItems'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/book`);
+            const res = await fetch(`https://re-books-server.vercel.app/book`);
             const data = await res.json();
             return data;
         }
@@ -19,7 +19,7 @@ const ReportedItems = () => {
         const proceed = window.confirm('Want to delete this book ?');
         if (proceed) {
             // console.log(id, uid);
-            fetch(`http://localhost:5000/book/${id}`, {
+            fetch(`https://re-books-server.vercel.app/book/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

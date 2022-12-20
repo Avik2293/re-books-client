@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom';
 import logoNew from '../../Assets/logo.jpg';
 import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider';
+import Search from '../../Components/Search';
 
 const Navbar = () => {
     const menuItems = <React.Fragment>
+        <li><Search></Search></li>
         <li><Link to='/dashboard'>Dashboard</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/contact'>Contact</Link></li>
     </React.Fragment>
 
     const { user, logOut } = useContext(AuthContext);
@@ -32,7 +36,6 @@ const Navbar = () => {
                                     {menuItems}
                                 </>
                             }
-                            <li><Link to='/blog'>Blog</Link></li>
                         </ul>
                     </div>
                     <Link className="btn btn-ghost normal-case text-xl font-extrabold" to={'/'}><img className='h-5' src={logoNew} alt="" /> Re-Books</Link>
@@ -46,7 +49,6 @@ const Navbar = () => {
                                     {menuItems}
                                 </>
                             }
-                            <li><Link to='/blog'>Blog</Link></li>
                         </ul>
                     </div>
                     <div>

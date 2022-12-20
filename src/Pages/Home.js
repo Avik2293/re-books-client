@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import AdvertisedItems from '../Components/AdvertisedItems';
+import Feature from '../Components/Feature';
+import GetApps from '../Components/GetApps';
 import ReviewSection from '../Components/ReviewSection';
+import Stats from '../Components/Stats';
 
 const Home = () => {
 
@@ -21,7 +24,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <AdvertisedItems></AdvertisedItems>
             <div className='p-2 text-white m-1'>
                 <h3 className='text-xl font-extrabold p-2'>Books Catagory</h3>
                 <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
@@ -30,7 +32,11 @@ const Home = () => {
                     }
                 </div>
             </div>
+            <AdvertisedItems></AdvertisedItems>
+            <Feature></Feature>
             <ReviewSection></ReviewSection>
+            <Stats></Stats>
+            <GetApps></GetApps>
         </div>
     );
 };

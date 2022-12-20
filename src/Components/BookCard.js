@@ -67,17 +67,17 @@ const BookCard = ({ book, setBooking, isBuyer }) => {
                         {
                             isBuyer ?
                                 <div className='flex lg:block'>
-                                    <label htmlFor="book-modal" className="btn btn-outline btn-primary grid place-self-center"
+                                    <label htmlFor="book-modal" className="btn btn-outline btn-primary grid place-self-center p-0"
                                         onClick={() => setBooking(book)}>Book Now</label>
-                                    <label className="btn btn-outline btn-primary grid place-self-center m-1">Add to WishList</label>
+                                    <label className="btn btn-outline btn-primary grid place-self-center m-1 p-0">Add to WishList</label>
                                     {
                                         book?.reported ?
-                                            <label className="btn btn-outline btn-primary grid place-self-center">Reported</label>
+                                            <label className="btn btn-outline btn-primary grid place-self-center p-0">Reported</label>
                                             :
-                                            <label onClick={() => handleReportToAdmin(_id)} className="btn btn-outline btn-primary grid place-self-center">Report</label>
+                                            <label onClick={() => handleReportToAdmin(_id)} className="btn btn-outline btn-primary grid place-self-center p-0">Report</label>
                                     }
                                 </div> :
-                                <label className="btn btn-outline btn-primary grid place-self-center">You are not Buyer</label>
+                                <label className="btn btn-outline btn-primary grid place-self-center p-0">You are not Buyer</label>
 
                         }
                     </div>

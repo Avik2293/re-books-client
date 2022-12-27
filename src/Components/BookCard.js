@@ -42,7 +42,7 @@ const BookCard = ({ book, setBooking, isBuyer }) => {
         <>
             {
                 !sold &&
-                <div className="card lg:card-side w-11/12 lg:w-96 bg-gray-50 shadow-xl">
+                <div className="card w-11/12 lg:w-96 bg-gray-50 shadow-xl">
                     <figure><img className='h-52 lg:h-64 lg:w-80' src={img_url} alt="" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">
@@ -55,8 +55,8 @@ const BookCard = ({ book, setBooking, isBuyer }) => {
                                 verified && <FaCheckCircle className="text-blue-600"></FaCheckCircle>
                             }
                         </h2>
-                        <div className='flex lg:block'>
-                            <p className='border border-dashed border-stone-500 rounded-lg mr-1'><span className='font-bold'>Location:</span> {location}</p>
+                        <div className='flex'>
+                            <p className='border border-dashed border-stone-500 rounded-lg mr-1 p-1'><span className='font-bold'>Location:</span> {location}</p>
                             <p className='border border-dashed border-stone-500 rounded-lg mr-1 mt-1'><span className='font-bold'>Used Time:</span> {yearsOfUse} Years</p>
                             <p className='border border-dashed border-stone-500 rounded-lg mt-1'><span className='font-bold'>Posted On:</span> {postTime}</p>
                         </div>
@@ -66,18 +66,18 @@ const BookCard = ({ book, setBooking, isBuyer }) => {
                         </div>
                         {
                             isBuyer ?
-                                <div className='flex lg:block'>
-                                    <label htmlFor="book-modal" className="btn btn-outline btn-primary grid place-self-center p-0"
+                                <div className='flex'>
+                                    <label htmlFor="book-modal" className="btn btn-outline btn-primary grid place-self-center p-1"
                                         onClick={() => setBooking(book)}>Book Now</label>
-                                    <label className="btn btn-outline btn-primary grid place-self-center m-1 p-0">Add to WishList</label>
+                                    <label className="btn btn-outline btn-primary grid place-self-center m-1 p-1">Add to WishList</label>
                                     {
                                         book?.reported ?
-                                            <label className="btn btn-outline btn-primary grid place-self-center p-0">Reported</label>
+                                            <label className="btn btn-outline btn-primary grid place-self-center p-1">Reported</label>
                                             :
-                                            <label onClick={() => handleReportToAdmin(_id)} className="btn btn-outline btn-primary grid place-self-center p-0">Report</label>
+                                            <label onClick={() => handleReportToAdmin(_id)} className="btn btn-outline btn-primary grid place-self-center p-1">Report</label>
                                     }
                                 </div> :
-                                <label className="btn btn-outline btn-primary grid place-self-center p-0">You are not Buyer</label>
+                                <label className="btn btn-outline btn-primary grid place-self-center p-1">You are not Buyer</label>
 
                         }
                     </div>

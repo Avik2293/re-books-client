@@ -2,7 +2,7 @@ import React from 'react';
 
 const Feature = () => {
     return (
-        <section className="bg-gray-50 m-2">
+        <section data-aos="fade-down" data-aos-duration="2000" className="bg-gray-50 m-2 py-4">
             <div className="lg:flex justify-evenly m-6 lg:my-4">
                 <div className="flex">
                     <img className='w-12' src="https://www.rokomari.com/static/200/images/svg/cod-small.svg" alt="cash"></img>

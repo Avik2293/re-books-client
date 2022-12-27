@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import AdvertisedItems from '../Components/AdvertisedItems';
+import ConnectWithUs from '../Components/ConnectWithUs';
 import Feature from '../Components/Feature';
 import GetApps from '../Components/GetApps';
 import ReviewSection from '../Components/ReviewSection';
@@ -38,6 +39,7 @@ const Home = () => {
                 <ReviewSection></ReviewSection>
                 <Stats></Stats>
                 <GetApps></GetApps>
+                <ConnectWithUs></ConnectWithUs>
             </div>
         </div>
     );

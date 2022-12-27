@@ -8,7 +8,7 @@ const ReviewSection = () => {
                     <h1 className="text-3xl font-semibold leading-none text-center">What our users are saying about us</h1>
                 </div>
                 <div className="container mx-auto grid justify-items-center grid-cols-1 gap-8 lg:gap-20 md:px-10 md:pb-10 lg:grid-cols-2">
-                    <div className="flex flex-col items-center max-w-lg mx-12 lg:mx-0">
+                    <div data-aos="zoom-in-up" data-aos-duration="2000" className="flex flex-col items-center max-w-lg mx-12 lg:mx-0">
                         <div className="relative text-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute top-0 left-0 w-8 h-8 dark:text-gray-700">
                                 <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
@@ -23,7 +23,7 @@ const ReviewSection = () => {
                         <span className="w-12 h-1 my-2 rounded-lg dark:bg-violet-400"></span>
                         <p>Avik Sarker</p>
                     </div>
-                    <div className="flex flex-col items-center max-w-lg mx-12 lg:mx-0">
+                    <div data-aos="zoom-in-down" data-aos-duration="2000" className="flex flex-col items-center max-w-lg mx-12 lg:mx-0">
                         <div className="relative text-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="absolute top-0 left-0 w-8 h-8 dark:text-gray-700">
                                 <path fill="currentColor" d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
@@ -41,7 +41,7 @@ const ReviewSection = () => {
                 </div>
             </section>
             <div className='lg:flex mx-auto justify-evenly'>
-                <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
+                <div data-aos="zoom-in-right" data-aos-duration="3000" className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
                     <div className="flex flex-col items-center w-full">
                         <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
                         <div className="flex flex-col items-center py-6 space-y-3">
@@ -83,7 +83,7 @@ const ReviewSection = () => {
                         <a rel="noopener noreferrer" href="0" className="text-sm dark:text-gray-400">Maybe later</a>
                     </div>
                 </div>
-                <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
+                <div data-aos="zoom-in-left" data-aos-duration="3000" className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
                     <div className="flex flex-col w-full">
                         <h2 className="text-3xl font-semibold text-center">Customer reviews</h2>
                         <div className="flex flex-wrap items-center mt-2 mb-1 space-x-2">

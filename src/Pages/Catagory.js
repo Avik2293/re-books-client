@@ -30,7 +30,7 @@ const Catagory = () => {
             loading ?
             <Spinner></Spinner>
             :
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 m-3">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 mx-auto m-5 lg:max-w-screen-xl">
              {
                  books.map(book => <BookCard book={book} key={book._id} isBuyer={isBuyer} setBooking={setBooking}></BookCard>)
              }

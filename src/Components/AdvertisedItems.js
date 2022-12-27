@@ -27,9 +27,9 @@ const AdvertisedItems = () => {
         <div>
             {
                 advertisedItems?.length > 0 &&
-                <div className='m-1'>
-                    <p className='text-white font-extrabold text-2xl p-1 bg-sky-600 border rounded-xl'>Advertised Items</p>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 m-2">
+                <div className='lg:my-14'>
+                    <p className='text-white font-extrabold text-2xl p-1 bg-blue-400 border rounded-xl'>Advertised Items</p>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 mx-auto m-5 lg:max-w-screen-xl">
                         {
                             advertisedItems.map(book => <BookCard book={book} key={book._id} isBuyer={isBuyer} setBooking={setBooking}></BookCard>)
                         }

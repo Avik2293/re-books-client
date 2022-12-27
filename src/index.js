@@ -7,6 +7,11 @@ import { Toaster } from 'react-hot-toast';
 import AuthProvider from './Context/AuthProvider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+//AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
+
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

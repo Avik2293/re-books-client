@@ -52,4 +52,7 @@
     * React Query/Tanstack Query
     * Axios
     * React Hooks
+    * Framer Motion
+    * React countUp
+    * AOS
 

@@ -15,28 +15,30 @@ const Home = () => {
 
     return (
         <div>
-            <div className="hero p-1" style={{ backgroundImage: `url(${banner})` }}>
+            <div className="hero lg:h-96" style={{ backgroundImage: `url(${banner})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-3xl font-bold">Hello Book Lovers...</h1>
+                        <h1 className="mb-5 text-5xl font-bold">Hello Book Lovers...</h1>
                         <p className="mb-5">Grab the opportunity to find or re-sale old books using this platform. Sale your old books and help others to gain knowledge. Find books by catagory for buying.</p>
                     </div>
                 </div>
             </div>
-            <div className='p-2 text-white m-1'>
-                <h3 className='text-xl font-extrabold p-2'>Books Catagory</h3>
-                <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
-                    {
-                        catagories.map(catagory => <Link className='btn' to={`/catagory/${catagory.id}`} key={catagory?._id}><button type="submit"></button>{catagory?.catagory}</Link>)
-                    }
+            <div className='py-1 lg:mx-10'>
+                <div className='p-2 text-white m-2'>
+                    <h3 className='text-3xl text-black font-extrabold p-4'>Books Catagory</h3>
+                    <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
+                        {
+                            catagories.map(catagory => <Link className='btn' to={`/catagory/${catagory.id}`} key={catagory?._id}><button type="submit"></button>{catagory?.catagory}</Link>)
+                        }
+                    </div>
                 </div>
+                <AdvertisedItems></AdvertisedItems>
+                <Feature></Feature>
+                <ReviewSection></ReviewSection>
+                <Stats></Stats>
+                <GetApps></GetApps>
             </div>
-            <AdvertisedItems></AdvertisedItems>
-            <Feature></Feature>
-            <ReviewSection></ReviewSection>
-            <Stats></Stats>
-            <GetApps></GetApps>
         </div>
     );
 };
